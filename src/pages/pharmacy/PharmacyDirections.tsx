@@ -20,7 +20,6 @@ export default function PharmacyDirections() {
       <div className="mb-8">
         <MapPlaceholder label="Pharmacy Map" />
       </div>
-
       <div>
         <h2 className="text-lg font-bold text-white mb-4">Pharmacies Near You</h2>
         <div className="space-y-3">
@@ -44,7 +43,7 @@ export default function PharmacyDirections() {
                     </div>
                   </div>
                 </div>
-                <button className="flex items-center gap-2 bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-blue-500 transition shadow-lg ml-4 flex-shrink-0">
+                <button className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                   <Navigation size={13} /> Directions
                 </button>
               </div>

@@ -67,7 +67,7 @@ export default function OrderHistoryPage() {
           <h2 className={`text-2xl font-black mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>No Orders Yet</h2>
           <p className={`text-sm mb-8 ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>Your order history will appear here once you place an order</p>
           <button onClick={() => navigate('/search/name')}
-            className="bg-blue-600 text-white font-bold px-8 py-4 rounded-2xl hover:bg-blue-500 transition shadow-lg neon-blue text-sm">
+            className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
             Start Shopping
           </button>
         </div>
@@ -80,7 +80,7 @@ export default function OrderHistoryPage() {
       {/* Header */}
       <div className={`border-b ${isDark ? 'bg-gradient-to-b from-violet-600/12 via-purple-500/5 to-transparent border-white/5' : 'bg-gradient-to-b from-violet-50 to-white border-gray-200'}`}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-          <button onClick={() => navigate(-1)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+          <button onClick={() => navigate(-1)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
             <ArrowLeft size={16} /> Back
           </button>
           <div className="flex items-center justify-between flex-wrap gap-4">
@@ -95,24 +95,20 @@ export default function OrderHistoryPage() {
             </div>
             {orders.length > 0 && (
               <button onClick={clearHistory}
-                className={`flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-xl transition border ${isDark ? 'border-red-500/20 text-red-400 hover:bg-red-500/10' : 'border-red-200 text-red-500 hover:bg-red-50'}`}>
+                className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                 <Trash2 size={13} /> Clear History
               </button>
             )}
           </div>
         </div>
       </div>
-
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Filters */}
         <div className="flex items-center gap-2 mb-8 overflow-x-auto scrollbar-hide pb-2">
           <Filter size={14} className={isDark ? 'text-slate-500' : 'text-gray-400'} />
           {filters.map(f => (
             <button key={f.value} onClick={() => setFilter(f.value)}
-              className={`text-xs px-4 py-2 rounded-full font-semibold transition border whitespace-nowrap ${filter === f.value
-                ? (isDark ? 'bg-violet-500/20 text-violet-300 border-violet-500/30' : 'bg-violet-500 text-white border-violet-500')
-                : (isDark ? 'text-slate-400 border-white/10 hover:border-white/20' : 'text-gray-600 border-gray-200 hover:border-gray-300')
-              }`}>
+              className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               {f.label}
             </button>
           ))}
@@ -134,7 +130,7 @@ export default function OrderHistoryPage() {
                   style={{ animationDelay: `${idx * 60}ms` }}>
                   {/* Order Header */}
                   <button onClick={() => setExpandedId(isExpanded ? null : order.id)}
-                    className="w-full p-5 text-left">
+                    className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                     <div className="flex items-center justify-between flex-wrap gap-3">
                       <div className="flex items-center gap-3">
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${isDark ? 'bg-violet-500/10 border border-violet-500/20' : 'bg-violet-50 border border-violet-200'}`}>
@@ -158,7 +154,6 @@ export default function OrderHistoryPage() {
                       </div>
                     </div>
                   </button>
-
                   {/* Expanded Details */}
                   {isExpanded && (
                     <div className={`border-t px-5 pb-5 animate-fade-in ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
@@ -227,17 +222,17 @@ export default function OrderHistoryPage() {
                       {/* Actions */}
                       <div className="flex flex-wrap gap-2">
                         <button onClick={() => navigate(`/order/${order.id}/more`)}
-                          className={`flex items-center gap-2 text-xs font-bold px-4 py-2.5 rounded-xl transition border ${isDark ? 'bg-violet-500/10 border-violet-500/20 text-violet-300 hover:bg-violet-500/20' : 'bg-violet-50 border-violet-200 text-violet-600 hover:bg-violet-100'}`}>
+                          className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                           <ChevronRight size={12} /> More Options
                         </button>
                         {order.status === 'confirmed' && (
                           <button onClick={() => cancelOrder(order.id)}
-                            className={`flex items-center gap-2 text-xs font-bold px-4 py-2.5 rounded-xl transition border ${isDark ? 'border-red-500/20 text-red-400 hover:bg-red-500/10' : 'border-red-200 text-red-500 hover:bg-red-50'}`}>
+                            className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                             <XCircle size={12} /> Cancel Order
                           </button>
                         )}
                         <button onClick={() => navigate('/search/name')}
-                          className={`flex items-center gap-2 text-xs font-bold px-4 py-2.5 rounded-xl transition border ${isDark ? 'border-white/10 text-slate-400 hover:text-white hover:bg-white/5' : 'border-gray-200 text-gray-600 hover:bg-gray-100'}`}>
+                          className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                           <RotateCcw size={12} /> Reorder
                         </button>
                       </div>

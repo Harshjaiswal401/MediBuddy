@@ -29,9 +29,7 @@ export default function EmergencyHospital() {
           <a href="tel:112" className="glass border border-red-500/30 text-red-400 px-6 py-3 rounded-xl font-black hover:bg-red-500/10 transition">📞 112</a>
         </div>
       </div>
-
       <div className="mb-8"><MapPlaceholder label="Hospitals Map" /></div>
-
       <div className="space-y-3">
         {hospitals.map((h) => (
           <div key={h.name} className="glass rounded-2xl border border-red-500/10 p-5 hover:bg-red-500/5 hover:border-red-500/25 transition-all group">
@@ -55,7 +53,7 @@ export default function EmergencyHospital() {
                     <a href={`tel:${h.phone}`} className="flex items-center gap-1.5 bg-red-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-red-500 transition">
                       <Phone size={12} /> Call
                     </a>
-                    <button className="flex items-center gap-1.5 glass border border-white/10 text-slate-400 text-xs font-bold px-4 py-2.5 rounded-xl hover:text-white transition">
+                    <button className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                       <Navigation size={12} /> Go
                     </button>
                   </div>

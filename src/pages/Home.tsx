@@ -95,11 +95,11 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button onClick={() => navigate('/search/name')}
-                className="flex items-center justify-center gap-2.5 bg-blue-600 text-white font-bold px-8 py-4 rounded-2xl hover:bg-blue-500 transition shadow-2xl neon-blue text-sm">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <Search size={18} /> Search Medicine Now
               </button>
               <button onClick={() => navigate('/prebooking')}
-                className={`flex items-center justify-center gap-2.5 font-bold px-8 py-4 rounded-2xl transition text-sm ${isDark ? 'bg-orange-500/10 border border-orange-500/30 text-orange-400 hover:bg-orange-500/20' : 'bg-orange-50 border border-orange-200 text-orange-600 hover:bg-orange-100'}`}>
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <Clock size={18} /> Pre-Book Emergency
               </button>
             </div>
@@ -118,7 +118,6 @@ export default function Home() {
         {/* Bottom fade */}
         {isDark && <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#080c14] to-transparent" />}
       </section>
-
       {/* Stats */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className={`rounded-3xl border grid grid-cols-2 md:grid-cols-4 overflow-hidden ${isDark ? 'glass border-white/8 divide-x divide-y md:divide-y-0 divide-white/5' : 'bg-white border-gray-200 shadow-sm divide-x divide-y md:divide-y-0 divide-gray-100'}`}>
@@ -133,7 +132,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       {/* Quick Actions */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex items-center justify-between mb-6">
@@ -148,11 +146,7 @@ export default function Home() {
             <button
               key={action.route}
               onClick={() => navigate(action.route)}
-              className={`flex flex-col items-center gap-3 p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-2 group ${
-                isDark
-                  ? `glass border-white/8 ${action.isEmergency ? 'hover:border-orange-500/30' : 'hover:border-blue-500/20 hover:bg-white/5'}`
-                  : `bg-white border-gray-200 ${action.isEmergency ? 'hover:border-orange-300 hover:shadow-orange-100' : 'hover:border-blue-300 hover:shadow-lg'}`
-              }`}
+              className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200"
             >
               <div className={`w-12 h-12 bg-gradient-to-br ${action.color} rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
                 {action.icon}
@@ -166,7 +160,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       {/* Features */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center mb-10">
@@ -188,7 +181,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       {/* Pre-Booking CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className={`relative rounded-3xl p-8 md:p-12 border overflow-hidden ${isDark ? 'bg-gradient-to-r from-orange-900/30 via-orange-800/20 to-orange-900/15 border-orange-500/20' : 'bg-gradient-to-r from-orange-50 to-amber-50 border-orange-200'}`}>
@@ -210,18 +202,17 @@ export default function Home() {
             </div>
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
               <button onClick={() => navigate('/prebooking')}
-                className={`flex items-center gap-2 font-black px-8 py-4 rounded-2xl hover:bg-opacity-90 transition text-sm shadow-xl ${isDark ? 'bg-white text-orange-700 hover:bg-orange-50' : 'bg-orange-600 text-white hover:bg-orange-500'}`}>
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <Clock size={18} /> Pre-Book Now
               </button>
               <button onClick={() => navigate('/doctor')}
-                className={`flex items-center gap-2 font-bold px-8 py-4 rounded-2xl transition text-sm border ${isDark ? 'bg-orange-500/20 border-orange-500/40 text-orange-300 hover:bg-orange-500/30' : 'bg-white border-orange-200 text-orange-600 hover:bg-orange-50'}`}>
+                className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                 <Stethoscope size={18} /> Talk to Doctor
               </button>
             </div>
           </div>
         </div>
       </section>
-
       {/* Trending Searches */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex items-center justify-between mb-6">
@@ -229,7 +220,7 @@ export default function Home() {
             <h2 className={`text-2xl font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>Trending Medicines</h2>
             <p className={`text-sm mt-1 ${isDark ? 'text-slate-500' : 'text-gray-500'}`}>Most searched in the last 24 hours</p>
           </div>
-          <button onClick={() => navigate('/search/name')} className="text-blue-400 text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+          <button onClick={() => navigate('/search/name')} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
             View all <ChevronRight size={14} />
           </button>
         </div>
@@ -253,11 +244,7 @@ export default function Home() {
                     <Star size={11} className="text-yellow-400 fill-yellow-400" /> {med.rating}
                   </span>
                   <button onClick={(e) => handleAddToCart(med, e)}
-                    className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition ${
-                      addedId === med.id ? 'bg-green-600 text-white' :
-                      isInCart(med.id) ? (isDark ? 'bg-blue-500/20 text-blue-300' : 'bg-blue-50 text-blue-600') :
-                      'bg-blue-600 text-white hover:bg-blue-500'
-                    }`}>
+                    className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                     {addedId === med.id ? <CheckCircle size={11} /> : <ShoppingCart size={11} />}
                     {addedId === med.id ? '✓' : isInCart(med.id) ? '✓' : 'Add'}
                   </button>
@@ -267,7 +254,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       {/* Doctor Consultation Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className={`relative rounded-3xl p-8 md:p-12 border overflow-hidden ${isDark ? 'bg-gradient-to-r from-green-900/25 via-teal-900/15 to-green-900/20 border-green-500/15' : 'bg-gradient-to-r from-green-50 to-teal-50 border-green-200'}`}>
@@ -287,7 +273,7 @@ export default function Home() {
                 Talk to verified doctors across 10+ specialties via video, audio, or chat. Book your appointment in just 2 minutes.
               </p>
               <button onClick={() => navigate('/doctor')}
-                className="flex items-center gap-2.5 bg-green-600 text-white font-bold px-7 py-3.5 rounded-2xl hover:bg-green-500 transition shadow-xl text-sm">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <Stethoscope size={16} /> Book Consultation
               </button>
             </div>
@@ -314,7 +300,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* AI Feature Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className={`relative rounded-3xl p-8 md:p-12 border overflow-hidden ${isDark ? 'bg-gradient-to-r from-violet-900/30 via-blue-900/20 to-indigo-900/30 border-violet-500/15' : 'bg-gradient-to-r from-violet-50 to-indigo-50 border-violet-200'}`}>
@@ -334,7 +319,7 @@ export default function Home() {
                 Ask anything about medicines, check drug interactions, analyze symptoms, and get personalized health advice — 24/7.
               </p>
               <button onClick={() => navigate('/ai/medicine')}
-                className="flex items-center gap-2.5 bg-violet-600 text-white font-bold px-7 py-3.5 rounded-2xl hover:bg-violet-500 transition shadow-xl neon-violet text-sm">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <Bot size={16} /> Try MedAI Now
               </button>
             </div>
@@ -356,7 +341,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className={`border-t mt-8 ${isDark ? 'border-white/5' : 'border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">

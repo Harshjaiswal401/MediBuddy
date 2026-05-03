@@ -38,7 +38,7 @@ export default function OrderMorePage() {
           <Package size={48} className={isDark ? 'text-slate-600 mx-auto mb-4' : 'text-gray-300 mx-auto mb-4'} />
           <h2 className={`text-xl font-black mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>Order Not Found</h2>
           <p className={`text-sm mb-6 ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>This order doesn't exist or has been removed</p>
-          <button onClick={() => navigate('/orders')} className="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-blue-500 transition text-sm">
+          <button onClick={() => navigate('/orders')} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
             View All Orders
           </button>
         </div>
@@ -166,7 +166,7 @@ export default function OrderMorePage() {
       {/* Header */}
       <div className={`border-b ${isDark ? 'bg-gradient-to-b from-violet-600/12 via-purple-500/5 to-transparent border-white/5' : 'bg-gradient-to-b from-violet-50 to-white border-gray-200'}`}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <button onClick={() => navigate('/orders')} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+          <button onClick={() => navigate('/orders')} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
             <ArrowLeft size={16} /> Back to Orders
           </button>
           <div className="flex items-center justify-between flex-wrap gap-4">
@@ -179,14 +179,13 @@ export default function OrderMorePage() {
             </div>
             {order.status === 'confirmed' && (
               <button onClick={() => setShowCancel(true)}
-                className={`flex items-center gap-2 text-xs font-bold px-4 py-2.5 rounded-xl transition border ${isDark ? 'border-red-500/20 text-red-400 hover:bg-red-500/10' : 'border-red-200 text-red-500 hover:bg-red-50'}`}>
+                className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                 <XCircle size={13} /> Cancel Order
               </button>
             )}
           </div>
         </div>
       </div>
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Cancel Confirmation Modal */}
         {showCancel && (
@@ -194,8 +193,8 @@ export default function OrderMorePage() {
             <h3 className={`font-bold text-sm mb-2 ${isDark ? 'text-red-300' : 'text-red-700'}`}>⚠ Cancel this order?</h3>
             <p className={`text-xs mb-4 ${isDark ? 'text-red-400/70' : 'text-red-600/70'}`}>This action cannot be undone. Your order will be cancelled immediately.</p>
             <div className="flex gap-2">
-              <button onClick={handleCancelOrder} className="bg-red-600 text-white font-bold px-5 py-2 rounded-xl text-xs hover:bg-red-500 transition">Yes, Cancel</button>
-              <button onClick={() => setShowCancel(false)} className={`font-bold px-5 py-2 rounded-xl text-xs transition border ${isDark ? 'border-white/10 text-slate-400 hover:text-white' : 'border-gray-200 text-gray-600 hover:bg-gray-100'}`}>Keep Order</button>
+              <button onClick={handleCancelOrder} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">Yes, Cancel</button>
+              <button onClick={() => setShowCancel(false)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">Keep Order</button>
             </div>
           </div>
         )}
@@ -209,8 +208,8 @@ export default function OrderMorePage() {
                   if (opt.id === 'reorder') handleReorder();
                   else setActiveSection(opt.id);
                 }}
-                className={`flex items-start gap-4 p-5 rounded-2xl border text-left transition-all duration-300 hover:-translate-y-1 group ${isDark ? 'glass border-white/8 hover:border-violet-500/25 hover:bg-white/3' : 'bg-white border-gray-200 hover:shadow-lg hover:border-violet-300'}`}
-                style={{ animationDelay: `${idx * 50}ms` }}>
+                style={{ animationDelay: `${idx * 50}ms` }}
+                className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 border ${opt.bgColor}`}>
                   <span className={opt.color}>{opt.icon}</span>
                 </div>
@@ -227,7 +226,7 @@ export default function OrderMorePage() {
         {/* ── MESSAGE DOCTOR ── */}
         {activeSection === 'message-doctor' && (
           <div className="animate-fade-in-up">
-            <button onClick={() => setActiveSection(null)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+            <button onClick={() => setActiveSection(null)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               <ArrowLeft size={16} /> Back to Options
             </button>
             <div className={`rounded-2xl border overflow-hidden ${isDark ? 'glass border-white/8' : 'bg-white border-gray-200 shadow-md'}`}>
@@ -242,7 +241,7 @@ export default function OrderMorePage() {
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" /> Online
                   </p>
                 </div>
-                <button className={`p-2 rounded-xl transition ${isDark ? 'hover:bg-white/5 text-slate-400' : 'hover:bg-gray-100 text-gray-500'}`}>
+                <button className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                   <Phone size={16} />
                 </button>
               </div>
@@ -273,7 +272,7 @@ export default function OrderMorePage() {
                     className={inputClass}
                   />
                   <button onClick={sendMessage}
-                    className="bg-green-600 text-white p-3 rounded-xl hover:bg-green-500 transition flex-shrink-0">
+                    className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                     <Send size={16} />
                   </button>
                 </div>
@@ -288,7 +287,7 @@ export default function OrderMorePage() {
         {/* ── TRACK ORDER ── */}
         {activeSection === 'track-order' && (
           <div className="animate-fade-in-up">
-            <button onClick={() => setActiveSection(null)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+            <button onClick={() => setActiveSection(null)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               <ArrowLeft size={16} /> Back to Options
             </button>
             <div className={`rounded-2xl border p-6 ${isDark ? 'glass border-white/8' : 'bg-white border-gray-200 shadow-md'}`}>
@@ -330,7 +329,7 @@ export default function OrderMorePage() {
         {/* ── DOWNLOAD INVOICE ── */}
         {activeSection === 'download-invoice' && (
           <div className="animate-fade-in-up">
-            <button onClick={() => setActiveSection(null)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+            <button onClick={() => setActiveSection(null)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               <ArrowLeft size={16} /> Back to Options
             </button>
             <div className={`rounded-2xl border p-6 ${isDark ? 'glass border-white/8' : 'bg-white border-gray-200 shadow-md'}`}>
@@ -368,7 +367,7 @@ export default function OrderMorePage() {
                   </div>
                 </div>
               </div>
-              <button className="w-full flex items-center justify-center gap-2 bg-violet-600 text-white font-bold py-3 rounded-xl hover:bg-violet-500 transition text-sm">
+              <button className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <Download size={16} /> Download as PDF
               </button>
             </div>
@@ -378,7 +377,7 @@ export default function OrderMorePage() {
         {/* ── RATE & REVIEW ── */}
         {activeSection === 'rate-review' && (
           <div className="animate-fade-in-up">
-            <button onClick={() => setActiveSection(null)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+            <button onClick={() => setActiveSection(null)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               <ArrowLeft size={16} /> Back to Options
             </button>
             <div className={`rounded-2xl border p-6 ${isDark ? 'glass border-white/8' : 'bg-white border-gray-200 shadow-md'}`}>
@@ -396,7 +395,7 @@ export default function OrderMorePage() {
                   <div className="flex justify-center gap-2 mb-6">
                     {[1, 2, 3, 4, 5].map(star => (
                       <button key={star} onClick={() => setRating(star)}
-                        className="transition-transform hover:scale-125">
+                        className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                         <Star size={36} className={`transition ${star <= rating ? 'text-yellow-400 fill-yellow-400' : (isDark ? 'text-slate-600' : 'text-gray-300')}`} />
                       </button>
                     ))}
@@ -411,9 +410,7 @@ export default function OrderMorePage() {
                     className={inputClass} rows={4} />
                   <button onClick={handleSubmitReview}
                     disabled={rating === 0}
-                    className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm mt-4 transition ${
-                      rating === 0 ? 'bg-gray-500 text-gray-300 cursor-not-allowed' : 'bg-yellow-500 text-black hover:bg-yellow-400'
-                    }`}>
+                    className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                     <Star size={16} /> Submit Review
                   </button>
                 </>
@@ -425,7 +422,7 @@ export default function OrderMorePage() {
         {/* ── VIEW PRESCRIPTION ── */}
         {activeSection === 'prescription' && (
           <div className="animate-fade-in-up">
-            <button onClick={() => setActiveSection(null)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+            <button onClick={() => setActiveSection(null)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               <ArrowLeft size={16} /> Back to Options
             </button>
             <div className={`rounded-2xl border p-6 ${isDark ? 'glass border-white/8' : 'bg-white border-gray-200 shadow-md'}`}>
@@ -445,7 +442,7 @@ export default function OrderMorePage() {
         {/* ── HELP ── */}
         {activeSection === 'help' && (
           <div className="animate-fade-in-up">
-            <button onClick={() => setActiveSection(null)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+            <button onClick={() => setActiveSection(null)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               <ArrowLeft size={16} /> Back to Options
             </button>
             <div className={`rounded-2xl border p-6 ${isDark ? 'glass border-white/8' : 'bg-white border-gray-200 shadow-md'}`}>
@@ -465,7 +462,7 @@ export default function OrderMorePage() {
                       <p className={`font-bold text-sm ${isDark ? 'text-white' : 'text-gray-900'}`}>{item.title}</p>
                       <p className={`text-xs ${isDark ? 'text-slate-500' : 'text-gray-500'}`}>{item.desc}</p>
                     </div>
-                    <button className={`text-xs font-bold px-4 py-2 rounded-lg transition ${isDark ? 'bg-orange-500/10 text-orange-400 hover:bg-orange-500/20' : 'bg-orange-50 text-orange-600 hover:bg-orange-100'}`}>
+                    <button className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                       {item.action}
                     </button>
                   </div>
@@ -478,7 +475,7 @@ export default function OrderMorePage() {
         {/* ── SHARE ── */}
         {activeSection === 'share' && (
           <div className="animate-fade-in-up">
-            <button onClick={() => setActiveSection(null)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+            <button onClick={() => setActiveSection(null)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               <ArrowLeft size={16} /> Back to Options
             </button>
             <div className={`rounded-2xl border p-6 ${isDark ? 'glass border-white/8' : 'bg-white border-gray-200 shadow-md'}`}>
@@ -497,7 +494,7 @@ export default function OrderMorePage() {
                   { label: 'Copy Link', emoji: '🔗', color: isDark ? 'glass border border-white/10 hover:bg-white/5' : 'bg-gray-100 hover:bg-gray-200' },
                 ].map((btn, i) => (
                   <button key={i}
-                    className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition ${btn.color} ${i < 3 ? 'text-white' : (isDark ? 'text-slate-300' : 'text-gray-700')}`}>
+                    className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                     <span>{btn.emoji}</span> {btn.label}
                   </button>
                 ))}

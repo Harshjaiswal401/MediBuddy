@@ -154,9 +154,9 @@ const sendEmails = (orderId: string) => {
             </div>
           </div>
           <div className="flex gap-3 justify-center flex-wrap">
-            <button onClick={() => navigate('/orders')} className="bg-violet-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-violet-500 transition text-sm">View Orders</button>
-            <button onClick={() => navigate('/')} className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-500 transition text-sm">Back to Home</button>
-            <button onClick={() => navigate('/search/name')} className={`px-8 py-3 rounded-xl font-bold text-sm transition border ${isDark ? 'glass border-white/10 text-slate-300 hover:text-white' : 'bg-gray-100 border-gray-200 text-gray-700 hover:bg-gray-200'}`}>Continue Shopping</button>
+            <button onClick={() => navigate('/orders')} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">View Orders</button>
+            <button onClick={() => navigate('/')} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">Back to Home</button>
+            <button onClick={() => navigate('/search/name')} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">Continue Shopping</button>
           </div>
         </div>
       </div>
@@ -168,7 +168,7 @@ const sendEmails = (orderId: string) => {
     return (
       <div className={`min-h-screen ${isDark ? 'bg-[#080c14] bg-dark-grid' : 'bg-gray-50'}`}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <button onClick={() => setStep(1)} className={`flex items-center gap-2 text-sm mb-6 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+          <button onClick={() => setStep(1)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
             <ArrowLeft size={16} /> Back to Details
           </button>
           <h1 className={`text-3xl font-black mb-8 ${isDark ? 'text-white' : 'text-gray-900'}`}>Confirm Order</h1>
@@ -207,7 +207,7 @@ const sendEmails = (orderId: string) => {
           </div>
 
           <button onClick={handleConfirm}
-            className="w-full flex items-center justify-center gap-2 bg-green-600 text-white font-black py-4 rounded-2xl hover:bg-green-500 transition shadow-xl text-sm">
+            className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
             <CheckCircle size={18} /> Place Order · ₹{total}
           </button>
         </div>
@@ -220,14 +220,13 @@ const sendEmails = (orderId: string) => {
     <div className={`min-h-screen ${isDark ? 'bg-[#080c14] bg-dark-grid' : 'bg-gray-50'}`}>
       <div className={`border-b ${isDark ? 'bg-gradient-to-b from-blue-600/10 to-transparent border-white/5' : 'bg-gradient-to-b from-blue-50 to-white border-gray-200'}`}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <button onClick={() => navigate('/cart')} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+          <button onClick={() => navigate('/cart')} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
             <ArrowLeft size={16} /> Back to Cart
           </button>
           <h1 className={`text-2xl md:text-4xl font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>Checkout</h1>
           <p className={`text-sm mt-1 ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>Fill in your details for delivery</p>
         </div>
       </div>
-
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
@@ -318,10 +317,7 @@ const sendEmails = (orderId: string) => {
                   { value: 'card', label: 'Credit/Debit Card', icon: '💳', desc: 'Visa, Mastercard, RuPay' },
                 ].map(pm => (
                   <button key={pm.value} onClick={() => setForm({ ...form, paymentMethod: pm.value })}
-                    className={`p-4 rounded-xl border text-left transition ${form.paymentMethod === pm.value
-                      ? (isDark ? 'border-blue-500/40 bg-blue-500/10 neon-blue' : 'border-blue-400 bg-blue-50 shadow-sm')
-                      : (isDark ? 'border-white/8 hover:border-white/20' : 'border-gray-200 hover:border-gray-300')
-                    }`}>
+                    className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                     <div className="text-2xl mb-2">{pm.icon}</div>
                     <p className={`text-sm font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>{pm.label}</p>
                     <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-500' : 'text-gray-500'}`}>{pm.desc}</p>
@@ -355,7 +351,7 @@ const sendEmails = (orderId: string) => {
             </div>
 
             <button onClick={handleSubmit}
-              className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white font-bold py-4 rounded-2xl mt-6 hover:bg-blue-500 transition shadow-lg neon-blue text-sm">
+              className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
               Review Order
             </button>
 

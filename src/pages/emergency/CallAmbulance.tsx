@@ -45,7 +45,6 @@ export default function CallAmbulance() {
           <p className="mt-4 text-sm text-slate-600 font-medium">EMRI Ambulance · Free · 24/7</p>
         </div>
       </div>
-
       {/* Quick Services Grid */}
       <div className="mb-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">All Emergency Numbers</h2>
@@ -69,7 +68,6 @@ export default function CallAmbulance() {
           ))}
         </div>
       </div>
-
       {/* Steps */}
       <Card className="p-6 mb-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
@@ -90,7 +88,6 @@ export default function CallAmbulance() {
           ))}
         </div>
       </Card>
-
       {/* Location Share */}
       <Card className="p-5 bg-blue-50 border-blue-100">
         <div className="flex items-start gap-3">
@@ -98,13 +95,12 @@ export default function CallAmbulance() {
           <div>
             <h3 className="font-bold text-blue-800">Share Your Location</h3>
             <p className="text-xs text-blue-600 mt-1 mb-3">Share your GPS location with the emergency team for faster response.</p>
-            <button className="text-sm bg-blue-600 text-white px-5 py-2.5 rounded-xl font-semibold hover:bg-blue-700 transition flex items-center gap-2">
+            <button className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
               <MapPin size={15} /> Share Live Location
             </button>
           </div>
         </div>
       </Card>
-
       {/* ETA Info */}
       <div className="mt-4 grid grid-cols-3 gap-3">
         {[

@@ -15,15 +15,13 @@ export default function AskMedicine() {
         <p className="text-xs text-slate-500 font-semibold uppercase tracking-widest mb-3">Try asking about</p>
         <div className="flex flex-wrap gap-2">
           {['What is Metformin?', 'Side effects of Ibuprofen', 'Can I take Paracetamol daily?', 'Drug interactions with Aspirin'].map((q) => (
-            <button key={q} className="text-xs glass border border-white/10 text-slate-400 hover:text-violet-300 hover:border-violet-500/30 px-4 py-2 rounded-full transition">
+            <button key={q} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               {q}
             </button>
           ))}
         </div>
       </div>
-
       <ChatUI />
-
       <div className="mt-5 flex items-start gap-3 glass rounded-2xl border border-white/8 p-4">
         <span className="text-yellow-400 text-xl">⚠️</span>
         <p className="text-xs text-slate-500 leading-relaxed">

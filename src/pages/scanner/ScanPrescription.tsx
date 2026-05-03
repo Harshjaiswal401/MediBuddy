@@ -121,7 +121,7 @@ export default function ScanPrescription() {
         {capturedImage && !cameraActive && (
           <div className="relative mb-6">
             <img src={capturedImage} alt="Captured" className="max-h-64 mx-auto rounded-2xl border border-blue-500/30" />
-            <button onClick={resetAll} className="absolute top-2 right-2 bg-black/60 text-white p-1.5 rounded-full hover:bg-black/80 transition">
+            <button onClick={resetAll} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
               <X size={14} />
             </button>
           </div>
@@ -163,29 +163,29 @@ export default function ScanPrescription() {
           {cameraActive ? (
             <>
               <button onClick={capturePhoto}
-                className="flex items-center justify-center gap-2 bg-blue-600 text-white font-bold px-8 py-3.5 rounded-2xl hover:bg-blue-500 transition shadow-lg text-sm">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 📸 Capture & Scan
               </button>
               <button onClick={stopCamera}
-                className={`flex items-center justify-center gap-2 font-bold px-8 py-3.5 rounded-2xl transition text-sm border ${isDark ? 'glass border-white/15 text-slate-300 hover:bg-white/8' : 'bg-gray-100 border-gray-200 text-gray-700'}`}>
+                className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                 <X size={16} /> Cancel
               </button>
             </>
           ) : capturedImage ? (
             uploaded && (
               <button onClick={resetAll}
-                className="flex items-center justify-center gap-2 bg-green-600 text-white font-bold px-8 py-3.5 rounded-2xl hover:bg-green-500 transition shadow-lg text-sm">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <CheckCircle size={16} /> Scan Another
               </button>
             )
           ) : (
             <>
               <button onClick={startCamera}
-                className="flex items-center justify-center gap-2 bg-blue-600 text-white font-bold px-8 py-3.5 rounded-2xl hover:bg-blue-500 transition shadow-lg text-sm">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 📷 Open Camera
               </button>
               <button onClick={() => fileInputRef.current?.click()}
-                className={`flex items-center justify-center gap-2 font-bold px-8 py-3.5 rounded-2xl transition text-sm border ${isDark ? 'glass border-white/15 text-slate-300 hover:bg-white/8' : 'bg-gray-100 border-gray-200 text-gray-700'}`}>
+                className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                 📁 Upload Image
               </button>
             </>

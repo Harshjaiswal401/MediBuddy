@@ -94,8 +94,8 @@ export default function PreBookingPage() {
           </div>
 
           <div className="flex gap-3 justify-center flex-wrap">
-            <button onClick={() => navigate('/cart')} className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-500 transition text-sm">View Cart</button>
-            <button onClick={() => navigate('/')} className={`px-6 py-3 rounded-xl font-bold text-sm transition border ${isDark ? 'glass border-white/10 text-slate-300' : 'bg-gray-100 border-gray-200 text-gray-700'}`}>Back to Home</button>
+            <button onClick={() => navigate('/cart')} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">View Cart</button>
+            <button onClick={() => navigate('/')} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">Back to Home</button>
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@ export default function PreBookingPage() {
       {/* Header */}
       <div className={`border-b ${isDark ? 'bg-gradient-to-b from-orange-600/15 via-red-500/5 to-transparent border-white/5' : 'bg-gradient-to-b from-orange-50 to-white border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-          <button onClick={() => navigate(-1)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+          <button onClick={() => navigate(-1)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
             <ArrowLeft size={16} /> Back
           </button>
           <div className="flex items-center gap-3">
@@ -120,7 +120,6 @@ export default function PreBookingPage() {
           <p className={`text-sm mt-2 max-w-xl ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>Pre-order essential medicines for emergencies. Your order will be prioritized and prepared for fast delivery.</p>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Steps indicator */}
         <div className="flex items-center gap-4 mb-8">
@@ -140,10 +139,7 @@ export default function PreBookingPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
               {emergencyMedicines.map(med => (
                 <button key={med.id} onClick={() => toggleMed(med.id)}
-                  className={`p-4 rounded-2xl border text-left transition ${selectedMeds.includes(med.id)
-                    ? (isDark ? 'border-blue-500/40 bg-blue-500/10 neon-blue' : 'border-blue-400 bg-blue-50 shadow-md')
-                    : (isDark ? 'glass border-white/8 hover:border-white/20' : 'bg-white border-gray-200 hover:border-gray-300')
-                  }`}>
+                  className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xl">💊</span>
                     {selectedMeds.includes(med.id) && <CheckCircle size={16} className="text-blue-400" />}
@@ -156,13 +152,13 @@ export default function PreBookingPage() {
             </div>
 
             <button onClick={() => navigate('/search/name')}
-              className={`text-sm font-semibold mb-8 transition ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'}`}>
+              className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
               + Browse more medicines →
             </button>
 
             {selectedMeds.length > 0 && (
               <button onClick={() => setStep(2)}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-600 text-white font-bold px-8 py-4 rounded-2xl hover:bg-blue-500 transition shadow-lg neon-blue text-sm">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 Continue with {selectedMeds.length} medicine{selectedMeds.length !== 1 ? 's' : ''} <ChevronRight size={16} />
               </button>
             )}
@@ -171,7 +167,7 @@ export default function PreBookingPage() {
 
         {step === 2 && (
           <div className="max-w-2xl">
-            <button onClick={() => setStep(1)} className={`flex items-center gap-2 text-sm mb-6 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+            <button onClick={() => setStep(1)} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
               <ArrowLeft size={16} /> Change medicines
             </button>
 
@@ -199,10 +195,7 @@ export default function PreBookingPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {urgencyLevels.map(u => (
                   <button key={u.value} onClick={() => setForm({ ...form, urgency: u.value })}
-                    className={`p-4 rounded-xl border text-left transition ${form.urgency === u.value
-                      ? (isDark ? `border-${u.color}-500/40 bg-${u.color}-500/10` : `border-${u.color}-400 bg-${u.color}-50`)
-                      : (isDark ? 'border-white/8 hover:border-white/20' : 'border-gray-200 hover:border-gray-300')
-                    }`}>
+                    className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                     <p className="font-bold text-sm">{u.label}</p>
                     <p className={`text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-gray-500'}`}>{u.desc}</p>
                   </button>
@@ -238,11 +231,7 @@ export default function PreBookingPage() {
 
             <button onClick={handleConfirm}
               disabled={!form.reason || !form.patientName || !form.patientPhone}
-              className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-sm transition shadow-lg ${
-                !form.reason || !form.patientName || !form.patientPhone
-                  ? 'bg-gray-500 text-gray-300 cursor-not-allowed'
-                  : 'bg-orange-600 text-white hover:bg-orange-500'
-              }`}>
+              className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
               <Package size={18} /> Confirm Pre-Booking
             </button>
           </div>

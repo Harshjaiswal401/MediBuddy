@@ -89,11 +89,11 @@ export default function UploadPrescription() {
             <p className={`text-sm mb-6 ${isDark ? 'text-slate-500' : 'text-gray-500'}`}>JPG, PNG, or PDF · Up to 10MB · Handwritten or printed</p>
             <div className="flex justify-center gap-4 flex-wrap">
               <button onClick={(e) => { e.stopPropagation(); fileInputRef.current?.click(); }}
-                className="bg-blue-600 text-white font-bold px-8 py-3.5 rounded-2xl hover:bg-blue-500 transition shadow-lg text-sm">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 📁 Upload File
               </button>
               <button onClick={(e) => { e.stopPropagation(); cameraInputRef.current?.click(); }}
-                className={`font-bold px-8 py-3.5 rounded-2xl transition text-sm border ${isDark ? 'glass border-white/15 text-slate-300 hover:bg-white/8' : 'bg-gray-100 border-gray-200 text-gray-700 hover:bg-gray-200'}`}>
+                className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                 📷 Take Photo
               </button>
             </div>
@@ -112,7 +112,7 @@ export default function UploadPrescription() {
             </div>
             <div className="flex items-center justify-center gap-2 mb-2">
               <p className={`font-bold text-sm truncate max-w-xs ${isDark ? 'text-white' : 'text-gray-900'}`}>{selectedFile.name}</p>
-              <button onClick={clearFile} className="text-red-400 hover:text-red-300 transition"><X size={16} /></button>
+              <button onClick={clearFile} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200"><X size={16} /></button>
             </div>
             <p className={`text-xs mb-4 ${isDark ? 'text-slate-500' : 'text-gray-500'}`}>{(selectedFile.size / 1024).toFixed(1)} KB</p>
 
@@ -133,20 +133,19 @@ export default function UploadPrescription() {
 
             {!uploading && !uploaded && (
               <button onClick={simulateUpload}
-                className="bg-blue-600 text-white font-bold px-8 py-3 rounded-2xl hover:bg-blue-500 transition shadow-lg text-sm flex items-center gap-2 mx-auto">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <Upload size={16} /> Upload Prescription
               </button>
             )}
             {uploaded && (
               <button onClick={clearFile}
-                className="bg-green-600 text-white font-bold px-8 py-3 rounded-2xl hover:bg-green-500 transition shadow-lg text-sm flex items-center gap-2 mx-auto">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <CheckCircle size={16} /> Upload Another
               </button>
             )}
           </div>
         )}
       </div>
-
       {/* How it works */}
       <div className={`rounded-3xl border p-6 ${isDark ? 'glass border-white/8' : 'bg-white border-gray-200 shadow-sm'}`}>
         <h3 className={`font-black text-lg mb-5 ${isDark ? 'text-white' : 'text-gray-900'}`}>How it works</h3>

@@ -64,9 +64,9 @@ export default function AIWidget({ user }) {
               <span>Ask MedAI</span>
             </div>
             <button 
-              className="btn-secondary" 
-              style={{ padding: '4px', background: 'transparent', border: 'none', color: 'white' }}
+              style={{ padding: '4px', background: 'transparent', border: 'none', color: 'white' }} 
               onClick={() => setIsOpen(false)}
+              className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <X size={20} />
             </button>
@@ -94,7 +94,10 @@ export default function AIWidget({ user }) {
               onChange={(e) => setInput(e.target.value)}
               disabled={isLoading}
             />
-            <button type="submit" disabled={isLoading || !input.trim()}>
+            <button
+              type="submit"
+              disabled={isLoading || !input.trim()}
+              className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
               <Send size={18} />
             </button>
           </form>

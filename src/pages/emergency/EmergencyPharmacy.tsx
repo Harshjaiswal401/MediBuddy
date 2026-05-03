@@ -31,11 +31,9 @@ export default function EmergencyPharmacy() {
           </a>
         </div>
       </div>
-
       <div className="mb-8">
         <MapPlaceholder label="Emergency Pharmacies Map" />
       </div>
-
       <div className="space-y-3">
         {emergencyPharmacies.map((p) => (
           <div key={p.name} className="glass rounded-2xl border border-red-500/15 p-5 hover:bg-red-500/5 hover:border-red-500/30 transition-all group">
@@ -58,7 +56,7 @@ export default function EmergencyPharmacy() {
                 <a href={`tel:${p.phone}`} className="flex items-center gap-1.5 bg-red-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-red-500 transition shadow-lg">
                   <Phone size={12} /> Call
                 </a>
-                <button className="flex items-center gap-1.5 glass border border-white/10 text-slate-400 text-xs font-bold px-4 py-2.5 rounded-xl hover:text-white transition">
+                <button className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                   <Navigation size={12} /> Go
                 </button>
               </div>

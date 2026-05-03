@@ -40,11 +40,7 @@ export default function SymptomsCheck() {
             <button
               key={sym}
               onClick={() => toggle(sym)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                selected.includes(sym)
-                  ? 'bg-violet-600 text-white border border-violet-400/50 shadow-lg'
-                  : 'glass border border-white/10 text-slate-400 hover:text-slate-200 hover:border-white/20'
-              }`}
+              className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
             >
               {selected.includes(sym) ? <X size={13} /> : <Plus size={13} />}
               {sym}
@@ -57,14 +53,13 @@ export default function SymptomsCheck() {
             <p className="text-sm text-slate-400">{selected.length} symptom{selected.length !== 1 ? 's' : ''} selected</p>
             <button
               onClick={() => setAnalyzed(true)}
-              className="flex items-center gap-2 bg-violet-600 text-white font-bold px-7 py-3 rounded-xl hover:bg-violet-500 transition shadow-lg text-sm"
+              className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <Stethoscope size={16} /> Analyze Symptoms
             </button>
           </div>
         )}
       </div>
-
       {/* Results */}
       {analyzed && selected.length > 0 && (
         <div className="animate-fade-in-up">

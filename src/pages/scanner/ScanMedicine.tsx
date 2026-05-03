@@ -137,7 +137,7 @@ export default function ScanMedicine() {
               {cameraError ? (
                 <>
                   <p className="text-red-400 text-sm font-semibold mb-2">⚠️ {cameraError}</p>
-                  <button onClick={startCamera} className="text-xs text-cyan-400 hover:text-cyan-300 underline">Try again</button>
+                  <button onClick={startCamera} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">Try again</button>
                 </>
               ) : (
                 <>
@@ -165,11 +165,11 @@ export default function ScanMedicine() {
           {cameraActive ? (
             <>
               <button onClick={capturePhoto}
-                className="flex-1 flex items-center justify-center gap-2 bg-cyan-600 text-white font-bold py-3.5 rounded-xl hover:bg-cyan-500 transition text-sm">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 📸 Capture & Scan
               </button>
               <button onClick={stopCamera}
-                className={`flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold border ${isDark ? 'glass border-white/10 text-slate-400 hover:text-white' : 'bg-gray-100 border-gray-200 text-gray-700'}`}>
+                className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                 <X size={16} /> Cancel
               </button>
             </>
@@ -177,7 +177,7 @@ export default function ScanMedicine() {
             <>
               {!scanning && (
                 <button onClick={resetScan}
-                  className="flex-1 flex items-center justify-center gap-2 bg-cyan-600 text-white font-bold py-3.5 rounded-xl hover:bg-cyan-500 transition text-sm">
+                  className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                   <ScanLine size={18} /> Scan Again
                 </button>
               )}
@@ -185,18 +185,17 @@ export default function ScanMedicine() {
           ) : (
             <>
               <button onClick={startCamera}
-                className="flex-1 flex items-center justify-center gap-2 bg-cyan-600 text-white font-bold py-3.5 rounded-xl hover:bg-cyan-500 transition text-sm">
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <Camera size={18} /> Open Camera
               </button>
               <button onClick={() => fileInputRef.current?.click()}
-                className={`flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold border ${isDark ? 'glass border-white/10 text-slate-400 hover:text-white' : 'bg-gray-100 border-gray-200 text-gray-700'}`}>
+                className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                 <ScanLine size={16} /> Upload
               </button>
             </>
           )}
         </div>
       </div>
-
       {/* Result */}
       {result && (
         <div className={`animate-fade-in-up rounded-3xl border p-6 ${isDark ? 'glass border-green-500/20 neon-cyan' : 'bg-white border-green-200 shadow-md'}`}>

@@ -33,7 +33,6 @@ export default function CheapAlternatives() {
       <div className="mb-8">
         <SearchBar placeholder="Enter medicine name to find cheaper alternatives..." onSearch={() => {}} accent="blue" />
       </div>
-
       <div className="space-y-6">
         {cheapAlts.map((item) => (
           <div key={item.original.name} className="glass rounded-3xl border border-white/8 overflow-hidden">
@@ -67,7 +66,7 @@ export default function CheapAlternatives() {
                     <p className="text-xs text-slate-500 mb-3">{alt.brand} · ⭐ {alt.rating}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-green-400 font-black text-lg">{alt.price}</span>
-                      <button className="flex items-center gap-1 text-xs text-slate-400 hover:text-white transition">
+                      <button className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                         View <ArrowRight size={12} />
                       </button>
                     </div>

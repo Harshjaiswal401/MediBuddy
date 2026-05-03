@@ -68,16 +68,16 @@ export default function Auth({ onLogin }) {
 
         <div className="tab-nav">
           <button 
-            className={`tab-btn ${isLogin ? 'active' : ''}`} 
-            onClick={() => setIsLogin(true)}
+            onClick={() => setIsLogin(true)} 
             style={{ flex: 1 }}
+            className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
           >
             Login
           </button>
           <button 
-            className={`tab-btn ${!isLogin ? 'active' : ''}`} 
-            onClick={() => setIsLogin(false)}
+            onClick={() => setIsLogin(false)} 
             style={{ flex: 1 }}
+            className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
           >
             Sign Up
           </button>
@@ -145,7 +145,10 @@ export default function Auth({ onLogin }) {
             />
           </div>
 
-          <button type="submit" style={{ width: '100%', marginTop: '20px', padding: '12px' }}>
+          <button
+            type="submit"
+            style={{ width: '100%', marginTop: '20px', padding: '12px' }}
+            className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
             {isLogin ? <LogIn size={20} /> : <UserPlus size={20} />}
             {isLogin ? 'Login' : 'Sign Up'}
           </button>

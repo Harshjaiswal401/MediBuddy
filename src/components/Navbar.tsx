@@ -138,17 +138,12 @@ function DropdownMenu({ item, onNavigate }: { item: NavItem; onNavigate: () => v
       <div ref={ref} className="relative">
         <button
           onClick={() => setOpen(!open)}
-          className={`flex items-center gap-1.5 px-3 py-2 rounded-lg font-semibold text-sm transition-all
-            ${open || isActiveSection
-              ? 'bg-red-500/20 text-red-400 border border-red-500/40'
-              : 'bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20 animate-pulse-red'
-            }`}
+          className="text-sm font-semibold text-red-600 bg-red-50 hover:bg-red-100 px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors border border-red-100 cursor-pointer"
         >
           <span>{item.icon}</span>
           <span>{item.label}</span>
           <ChevronDown size={13} className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
         </button>
-
         {open && (
           <div className={`animate-fade-in-down absolute top-full mt-2 left-0 w-64 rounded-2xl shadow-2xl z-50 overflow-hidden neon-red ${isDark ? 'glass-red' : 'bg-white border border-red-200'}`}>
             <div className={`px-4 py-3 border-b ${isDark ? 'border-red-500/20' : 'border-red-200'}`}>
@@ -158,11 +153,9 @@ function DropdownMenu({ item, onNavigate }: { item: NavItem; onNavigate: () => v
               <button
                 key={dropItem.route}
                 onClick={() => handleItemClick(dropItem.route)}
-                className={`w-full flex items-start gap-3 px-4 py-3 text-left transition group ${isDark ? 'hover:bg-red-500/10' : 'hover:bg-red-50'} ${
-                  location.pathname === dropItem.route ? (isDark ? 'bg-red-500/15 border-l-2 border-red-400' : 'bg-red-50 border-l-2 border-red-400') : ''
-                }`}
+                className="text-sm font-medium text-gray-600 dark:text-gray-300 bg-transparent hover:text-medical hover:bg-medical/10 px-3 py-2 rounded-lg transition-colors duration-200 flex items-center gap-1.5 cursor-pointer w-full text-left"
               >
-                <span className={`mt-0.5 flex-shrink-0 ${location.pathname === dropItem.route ? 'text-red-400' : (isDark ? 'text-red-500/60 group-hover:text-red-400' : 'text-red-300 group-hover:text-red-500')} transition`}>
+                <span className={`mt-0.5 flex-shrink-0 ${location.pathname === dropItem.route ? 'text-red-400' : 'text-red-300 group-hover:text-red-500'} transition`}>
                   {dropItem.icon}
                 </span>
                 <div>
@@ -185,17 +178,12 @@ function DropdownMenu({ item, onNavigate }: { item: NavItem; onNavigate: () => v
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all
-          ${open || isActiveSection
-            ? (isDark ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-50 text-blue-700 border border-blue-200')
-            : (isDark ? 'text-slate-400 hover:bg-white/5 hover:text-slate-200 border border-transparent' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 border border-transparent')
-          }`}
+        className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 font-medium transition-all duration-200 hover:bg-medical/10 hover:text-medical cursor-pointer"
       >
         {item.icon}
         <span>{item.label}</span>
         <ChevronDown size={13} className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </button>
-
       {open && (
         <div className={`animate-fade-in-down absolute top-full mt-2 left-0 w-64 rounded-2xl shadow-2xl z-50 overflow-hidden ${isDark ? 'glass neon-blue' : 'bg-white border border-gray-200'}`}>
           <div className={`px-4 py-3 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
@@ -205,11 +193,9 @@ function DropdownMenu({ item, onNavigate }: { item: NavItem; onNavigate: () => v
             <button
               key={dropItem.route}
               onClick={() => handleItemClick(dropItem.route)}
-              className={`w-full flex items-start gap-3 px-4 py-3 text-left transition group ${isDark ? 'hover:bg-blue-500/10' : 'hover:bg-blue-50'} ${
-                location.pathname === dropItem.route ? (isDark ? 'bg-blue-500/15 border-l-2 border-blue-400' : 'bg-blue-50 border-l-2 border-blue-400') : ''
-              }`}
+              className="text-sm font-medium text-gray-600 dark:text-gray-300 bg-transparent hover:text-medical hover:bg-medical/10 px-3 py-2 rounded-lg transition-colors duration-200 flex items-center gap-1.5 cursor-pointer w-full text-left"
             >
-              <span className={`mt-0.5 flex-shrink-0 transition ${location.pathname === dropItem.route ? 'text-blue-400' : (isDark ? 'text-slate-500 group-hover:text-blue-400' : 'text-gray-400 group-hover:text-blue-500')}`}>
+              <span className={`mt-0.5 flex-shrink-0 transition ${location.pathname === dropItem.route ? 'text-blue-400' : 'text-gray-400 group-hover:text-blue-500'}`}>
                 {dropItem.icon}
               </span>
               <div>
@@ -254,35 +240,19 @@ export default function Navbar() {
   const cartCount = getCartCount();
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${
-      scrolled
-        ? (isDark ? 'glass border-b border-white/8 shadow-xl' : 'bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-lg')
-        : (isDark ? 'bg-[#080c14]/80 backdrop-blur-sm border-b border-white/5' : 'bg-white/80 backdrop-blur-sm border-b border-gray-100')
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="sticky top-0 z-50 transition-all duration-300 w-full">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-wrap items-center justify-between gap-4 py-4 px-6 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
-            <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/30 neon-blue transition-all group-hover:scale-105">
-              <span className="text-white font-black text-sm">Rx</span>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className={`font-black text-lg tracking-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                NearMy<span className="text-blue-400">Med</span>
-              </span>
-              <span className={`text-xs font-medium ${isDark ? 'text-slate-500' : 'text-gray-500'}`}>AI Healthcare Platform</span>
-            </div>
+          <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-navy dark:text-white group flex-shrink-0">
+            <span className="text-medical font-black text-3xl">Rx</span> MediBuddyy
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-0.5">
+          <nav className="hidden lg:flex flex-wrap items-center gap-2 md:gap-4">
             <Link
               to="/"
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all border ${
-                location.pathname === '/'
-                  ? (isDark ? 'bg-blue-500/20 text-blue-300 border-blue-500/30' : 'bg-blue-50 text-blue-700 border-blue-200')
-                  : (isDark ? 'text-slate-400 hover:bg-white/5 hover:text-slate-200 border-transparent' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 border-transparent')
-              }`}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 font-medium transition-all duration-200 hover:bg-medical/10 hover:text-medical cursor-pointer"
             >
               <Home size={15} />
               Home
@@ -297,29 +267,28 @@ export default function Navbar() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-xl transition ${isDark ? 'text-slate-400 hover:bg-white/8 hover:text-yellow-400' : 'text-gray-500 hover:bg-gray-100 hover:text-orange-500'}`}
               title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              className="p-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 rounded-lg transition-colors cursor-pointer"
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
             <button
               onClick={() => navigate('/search/name')}
-              className="hidden sm:flex items-center gap-2 bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-blue-500 transition shadow-lg neon-blue"
+              className="bg-medical text-white px-8 py-3 rounded-full font-bold shadow-md hover:bg-medical-dark hover:-translate-y-1 transition-all duration-200 cursor-pointer"
             >
               <Zap size={14} />
               Get Started
             </button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`lg:hidden p-2 rounded-xl transition ${isDark ? 'text-slate-400 hover:bg-white/8' : 'text-gray-500 hover:bg-gray-100'}`}
+              className="p-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 rounded-lg transition-colors cursor-pointer lg:hidden"
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
       </div>
-
       {/* Mobile Nav */}
       {mobileOpen && (
         <div className={`lg:hidden max-h-[80vh] overflow-y-auto scrollbar-hide animate-fade-in-down border-t ${isDark ? 'glass border-white/5' : 'bg-white border-gray-200'}`}>
@@ -338,11 +307,7 @@ export default function Navbar() {
               <div key={item.id}>
                 <button
                   onClick={() => toggleMobileSection(item.id)}
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition ${
-                    item.isEmergency
-                      ? 'text-red-400 hover:bg-red-500/10'
-                      : (isDark ? 'text-slate-400 hover:bg-white/5' : 'text-gray-600 hover:bg-gray-100')
-                  }`}
+                  className={item.isEmergency ? "w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition text-red-400 hover:bg-red-500/10" : "w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 hover:text-medical"}
                 >
                   <span className="flex items-center gap-2">
                     {item.icon}
@@ -362,11 +327,7 @@ export default function Navbar() {
                           navigate(dropItem.route);
                           setMobileOpen(false);
                         }}
-                        className={`w-full flex items-center gap-3 px-4 py-3 text-left text-sm transition
-                          ${location.pathname === dropItem.route
-                            ? item.isEmergency ? 'bg-red-500/15 text-red-300 font-medium' : (isDark ? 'bg-blue-500/15 text-blue-300 font-medium' : 'bg-blue-50 text-blue-700 font-medium')
-                            : (isDark ? 'text-slate-500 hover:bg-white/5 hover:text-slate-300' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800')
-                          }`}
+                        className="text-sm font-medium text-gray-600 dark:text-gray-300 bg-transparent hover:text-medical hover:bg-medical/10 px-3 py-2 rounded-lg transition-colors duration-200 flex items-center gap-1.5 cursor-pointer w-full text-left"
                       >
                         <span className={item.isEmergency ? 'text-red-500/60' : (isDark ? 'text-slate-600' : 'text-gray-400')}>{dropItem.icon}</span>
                         {dropItem.label}

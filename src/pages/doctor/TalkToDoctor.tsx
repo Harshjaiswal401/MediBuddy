@@ -71,9 +71,9 @@ export default function TalkToDoctor() {
           </div>
 
           <div className="flex gap-3 justify-center flex-wrap">
-            <button onClick={() => navigate('/')} className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-500 transition text-sm">Back to Home</button>
+            <button onClick={() => navigate('/')} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">Back to Home</button>
             <button onClick={() => { setBookingStep(0); setSelectedDoctor(null); }}
-              className={`px-8 py-3 rounded-xl font-bold text-sm transition border ${isDark ? 'glass border-white/10 text-slate-300' : 'bg-gray-100 border-gray-200 text-gray-700'}`}>Book Another</button>
+              className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">Book Another</button>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ export default function TalkToDoctor() {
     return (
       <div className={`min-h-screen ${isDark ? 'bg-[#080c14] bg-dark-grid' : 'bg-gray-50'}`}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <button onClick={() => setBookingStep(0)} className={`flex items-center gap-2 text-sm mb-6 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+          <button onClick={() => setBookingStep(0)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
             <ArrowLeft size={16} /> Back to Doctors
           </button>
 
@@ -118,10 +118,7 @@ export default function TalkToDoctor() {
             <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
               {selectedDoctor.availableSlots.map(slot => (
                 <button key={slot} onClick={() => setSelectedSlot(slot)}
-                  className={`py-2.5 px-3 rounded-xl text-xs font-bold transition border ${selectedSlot === slot
-                    ? (isDark ? 'border-blue-500/40 bg-blue-500/15 text-blue-300' : 'border-blue-400 bg-blue-50 text-blue-700')
-                    : (isDark ? 'border-white/8 text-slate-400 hover:border-white/20' : 'border-gray-200 text-gray-600 hover:border-gray-300')
-                  }`}>
+                  className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                   {slot}
                 </button>
               ))}
@@ -137,10 +134,7 @@ export default function TalkToDoctor() {
             <div className="grid grid-cols-3 gap-3">
               {selectedDoctor.consultationType.map(type => (
                 <button key={type} onClick={() => setConsultType(type)}
-                  className={`p-3 rounded-xl border text-center transition ${consultType === type
-                    ? (isDark ? 'border-violet-500/40 bg-violet-500/10' : 'border-violet-400 bg-violet-50')
-                    : (isDark ? 'border-white/8 hover:border-white/20' : 'border-gray-200 hover:border-gray-300')
-                  }`}>
+                  className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                   <div className={`flex items-center justify-center mb-1 ${consultType === type ? (isDark ? 'text-violet-400' : 'text-violet-600') : (isDark ? 'text-slate-400' : 'text-gray-500')}`}>{consultIcons[type]}</div>
                   <p className={`text-xs font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>{consultLabels[type]}</p>
                 </button>
@@ -185,11 +179,7 @@ export default function TalkToDoctor() {
 
           <button onClick={handleBooking}
             disabled={!form.name || !form.phone || !selectedSlot}
-            className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-sm transition shadow-lg ${
-              !form.name || !form.phone || !selectedSlot
-                ? 'bg-gray-500 text-gray-300 cursor-not-allowed'
-                : 'bg-green-600 text-white hover:bg-green-500'
-            }`}>
+            className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
             <CheckCircle size={18} /> Book Appointment · {selectedDoctor.feeDisplay}
           </button>
         </div>
@@ -203,7 +193,7 @@ export default function TalkToDoctor() {
       {/* Header */}
       <div className={`border-b ${isDark ? 'bg-gradient-to-b from-green-600/12 via-teal-500/5 to-transparent border-white/5' : 'bg-gradient-to-b from-green-50 to-white border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-          <button onClick={() => navigate(-1)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+          <button onClick={() => navigate(-1)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
             <ArrowLeft size={16} /> Back
           </button>
           <div className="flex items-center gap-3 mb-4">
@@ -216,16 +206,12 @@ export default function TalkToDoctor() {
           <p className={`text-sm mt-2 max-w-xl ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>Book a consultation with verified, experienced doctors across multiple specialties. Video, audio, or chat — your choice.</p>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Specialty Filter */}
         <div className="flex flex-wrap gap-2 mb-8">
           {specialties.map(s => (
             <button key={s} onClick={() => setSelectedSpecialty(s)}
-              className={`text-xs px-4 py-2 rounded-full font-semibold transition border ${selectedSpecialty === s
-                ? (isDark ? 'bg-blue-500/20 text-blue-300 border-blue-500/30' : 'bg-blue-500 text-white border-blue-500')
-                : (isDark ? 'text-slate-400 border-white/10 hover:border-white/20' : 'text-gray-600 border-gray-200 hover:border-gray-300')
-              }`}>
+              className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               {s}
             </button>
           ))}
@@ -271,7 +257,7 @@ export default function TalkToDoctor() {
                   ))}
                 </div>
                 <button onClick={() => { setSelectedDoctor(doc); setBookingStep(1); setSelectedSlot(''); }}
-                  className={`ml-auto flex items-center gap-1 px-5 py-2 rounded-xl text-xs font-bold transition ${isDark ? 'bg-green-600 text-white hover:bg-green-500' : 'bg-green-600 text-white hover:bg-green-500'} shadow-lg`}>
+                  className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                   Book Now <ChevronRight size={12} />
                 </button>
               </div>

@@ -21,7 +21,7 @@ export default function CartPage() {
           <h2 className={`text-2xl font-black mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>Your Cart is Empty</h2>
           <p className={`text-sm mb-8 ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>Browse medicines and add them to your cart</p>
           <button onClick={() => navigate('/search/name')}
-            className="bg-blue-600 text-white font-bold px-8 py-4 rounded-2xl hover:bg-blue-500 transition shadow-lg neon-blue text-sm">
+            className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
             Browse Medicines
           </button>
         </div>
@@ -34,7 +34,7 @@ export default function CartPage() {
       {/* Header */}
       <div className={`border-b ${isDark ? 'bg-gradient-to-b from-blue-600/10 to-transparent border-white/5' : 'bg-gradient-to-b from-blue-50 to-white border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-          <button onClick={() => navigate(-1)} className={`flex items-center gap-2 text-sm mb-4 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+          <button onClick={() => navigate(-1)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
             <ArrowLeft size={16} /> Back
           </button>
           <div className="flex items-center gap-3">
@@ -48,7 +48,6 @@ export default function CartPage() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -67,26 +66,26 @@ export default function CartPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <button onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition ${isDark ? 'glass border border-white/10 text-slate-400 hover:text-white' : 'bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200'}`}>
+                    className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                     <Minus size={14} />
                   </button>
                   <span className={`w-10 text-center font-bold text-sm ${isDark ? 'text-white' : 'text-gray-900'}`}>{item.quantity}</span>
                   <button onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition ${isDark ? 'glass border border-white/10 text-slate-400 hover:text-white' : 'bg-gray-100 border border-gray-200 text-gray-600 hover:bg-gray-200'}`}>
+                    className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                     <Plus size={14} />
                   </button>
                 </div>
                 <div className="text-right">
                   <p className={`font-black text-sm ${isDark ? 'text-white' : 'text-gray-900'}`}>₹{item.price * item.quantity}</p>
                   <button onClick={() => removeFromCart(item.id)}
-                    className="text-red-400 hover:text-red-300 transition mt-1">
+                    className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                     <Trash2 size={16} />
                   </button>
                 </div>
               </div>
             ))}
             <button onClick={clearCart}
-              className={`text-xs font-semibold transition ${isDark ? 'text-slate-500 hover:text-red-400' : 'text-gray-500 hover:text-red-500'}`}>
+              className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
               Clear entire cart
             </button>
           </div>
@@ -112,7 +111,7 @@ export default function CartPage() {
             </div>
 
             <button onClick={() => navigate('/checkout')}
-              className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white font-bold py-4 rounded-2xl mt-6 hover:bg-blue-500 transition shadow-lg neon-blue text-sm">
+              className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
               Proceed to Checkout <ChevronRight size={16} />
             </button>
 

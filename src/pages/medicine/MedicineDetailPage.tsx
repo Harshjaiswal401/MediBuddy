@@ -18,7 +18,7 @@ function Section({ title, icon, children, defaultOpen = false, accentColor = 'bl
   return (
     <div className={`rounded-2xl border overflow-hidden transition-all ${isDark ? 'glass border-white/8' : 'bg-white border-gray-200 shadow-sm'}`}>
       <button onClick={() => setOpen(!open)}
-        className={`w-full flex items-center justify-between px-6 py-4 text-left transition ${isDark ? 'hover:bg-white/5' : 'hover:bg-gray-50'}`}>
+        className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
         <div className="flex items-center gap-3">
           <span className={`text-${accentColor}-400`}>{icon}</span>
           <span className={`font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>{title}</span>
@@ -50,7 +50,7 @@ export default function MedicineDetailPage() {
           <span className="text-6xl mb-4 block">💊</span>
           <h2 className={`text-2xl font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>Medicine Not Found</h2>
           <p className={`mt-2 ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>The medicine you're looking for doesn't exist.</p>
-          <button onClick={() => navigate('/search/name')} className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-500 transition">
+          <button onClick={() => navigate('/search/name')} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
             Search Medicines
           </button>
         </div>
@@ -77,11 +77,10 @@ export default function MedicineDetailPage() {
           </div>
         </div>
       )}
-
       {/* Header */}
       <div className={`relative border-b ${isDark ? 'bg-gradient-to-b from-blue-600/15 via-blue-500/5 to-transparent border-white/5' : 'bg-gradient-to-b from-blue-50 to-white border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-          <button onClick={() => navigate(-1)} className={`flex items-center gap-2 text-sm mb-6 transition ${isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+          <button onClick={() => navigate(-1)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
             <ArrowLeft size={16} /> Back
           </button>
 
@@ -122,24 +121,19 @@ export default function MedicineDetailPage() {
               <p className={`text-xs mb-6 ${isDark ? 'text-slate-500' : 'text-gray-500'}`}>{medicine.stripSize}</p>
 
               <button onClick={handleAddToCart} disabled={!medicine.inStock}
-                className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-sm transition shadow-lg mb-3 ${
-                  !medicine.inStock ? 'bg-gray-500 text-gray-300 cursor-not-allowed' :
-                  isInCart(medicine.id) ? (isDark ? 'bg-green-600 text-white hover:bg-green-500' : 'bg-green-600 text-white hover:bg-green-500') :
-                  'bg-blue-600 text-white hover:bg-blue-500 neon-blue'
-                }`}>
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 <ShoppingCart size={18} />
                 {!medicine.inStock ? 'Out of Stock' : isInCart(medicine.id) ? 'Add Another' : 'Add to Cart'}
               </button>
 
               <button onClick={() => navigate('/cart')}
-                className={`w-full flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-semibold transition border ${isDark ? 'glass border-white/10 text-slate-300 hover:text-white hover:bg-white/5' : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'}`}>
+                className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                 View Cart <ChevronRight size={14} />
               </button>
             </div>
           </div>
         </div>
       </div>
-
       {/* Detail Sections */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -250,7 +244,7 @@ export default function MedicineDetailPage() {
                 <div className="space-y-3">
                   {relatedMeds.map(m => (
                     <button key={m.id} onClick={() => navigate(`/medicine/${m.id}`)}
-                      className={`w-full flex items-center gap-3 p-3 rounded-xl text-left transition ${isDark ? 'hover:bg-white/5 border border-white/5' : 'hover:bg-gray-50 border border-gray-100'}`}>
+                      className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                       <span className="text-2xl">💊</span>
                       <div className="flex-1 min-w-0">
                         <p className={`text-sm font-semibold truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>{m.name}</p>

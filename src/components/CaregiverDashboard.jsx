@@ -55,11 +55,10 @@ export default function CaregiverDashboard({ user }) {
           <h1 style={{ color: 'var(--primary-color)' }}>Caregiver Monitor</h1>
           <p className="text-secondary">Real-time medication adherence for your linked patients.</p>
         </div>
-        <button className="btn-secondary">
+        <button className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
           <Users size={20} /> Link New Patient
         </button>
       </div>
-
       <div className="dashboard-grid">
         {patients.map(patient => (
           <div key={patient.id} className="card" style={{ borderTop: `4px solid ${getStatusColor(patient.status)}` }}>
@@ -86,7 +85,7 @@ export default function CaregiverDashboard({ user }) {
             </div>
 
             <div className="flex flex-col gap-2">
-              <button style={{ width: '100%' }} className={patient.status === 'missed' ? 'btn-danger' : 'btn-secondary'}>
+              <button style={{ width: '100%' }} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                 {patient.status === 'missed' ? 'Send Urgent Reminder' : 'View Details'}
               </button>
             </div>

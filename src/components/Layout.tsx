@@ -157,7 +157,7 @@ export function SearchBar({
       />
       <button
         onClick={() => onSearch?.(value)}
-        className={`${accentMap[accent]?.split(' ').slice(0, 2).join(' ') || 'bg-blue-600 hover:bg-blue-500'} text-white font-semibold px-7 py-3.5 rounded-xl transition shadow-lg text-sm whitespace-nowrap`}
+        className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
       >
         {buttonLabel}
       </button>
@@ -251,7 +251,7 @@ export function MapPlaceholder({ label = 'Map View' }: { label?: string }) {
         ) : (
           <>
             <p className={`text-xs mt-1 ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>Click to enable live GPS location</p>
-            <button onClick={enableGPS} className="mt-3 text-xs bg-blue-600 text-white px-5 py-2 rounded-xl font-semibold hover:bg-blue-500 transition shadow-lg neon-blue">
+            <button onClick={enableGPS} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
               📍 Enable GPS
             </button>
           </>
@@ -333,7 +333,6 @@ export function ChatUI() {
         </div>
 
       </div>
-
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-5 space-y-4 scrollbar-hide">
         {messages.map((msg, i) => (
@@ -371,7 +370,6 @@ export function ChatUI() {
         )}
         <div ref={messagesEndRef} />
       </div>
-
       {/* Input */}
       <div className={`px-4 py-4 border-t flex gap-3 ${isDark ? 'border-white/8' : 'border-gray-200'}`}>
         <input
@@ -386,7 +384,7 @@ export function ChatUI() {
         <button
           onClick={handleSend}
           disabled={isLoading}
-          className={`bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-blue-500 transition shadow-lg neon-blue ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+          className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
         >
           {isLoading ? '...' : 'Send'}
         </button>
@@ -451,7 +449,7 @@ export function MedicineCard({
   return (
     <button
       onClick={onClick}
-      className={`w-full rounded-2xl p-5 text-left hover:-translate-y-1 transition-all duration-300 group border ${isDark ? 'glass border-white/8 hover:bg-white/8 hover:border-blue-500/30 hover:neon-blue' : 'bg-white border-gray-200 hover:shadow-lg hover:border-blue-300'}`}
+      className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200"
     >
       <div className="flex items-start justify-between mb-4">
         <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform ${isDark ? 'bg-blue-500/10 border border-blue-500/20' : 'bg-blue-50 border border-blue-200'}`}>

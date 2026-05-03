@@ -74,27 +74,18 @@ export default function Dashboard() {
         <div className={`inline-flex rounded-full p-1 ${isDark ? 'bg-white/5' : 'bg-gray-100'}`}>
           <button 
             onClick={() => setView('patient')}
-            className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${
-              view === 'patient' 
-                ? (isDark ? 'bg-blue-600 text-white shadow-lg' : 'bg-white text-blue-600 shadow-sm') 
-                : (isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900')
-            }`}
+            className={view === 'patient' ? "bg-medical text-white px-5 py-1.5 rounded-full text-sm font-semibold shadow-sm flex items-center justify-center gap-2" : "text-gray-500 hover:bg-gray-100 px-5 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center justify-center gap-2"}
           >
-            <Activity size={16} className="inline mr-2" /> Patient View
+            <Activity size={16} className="inline" /> Patient View
           </button>
           <button 
             onClick={() => setView('caregiver')}
-            className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${
-              view === 'caregiver' 
-                ? (isDark ? 'bg-indigo-600 text-white shadow-lg' : 'bg-white text-indigo-600 shadow-sm') 
-                : (isDark ? 'text-slate-400 hover:text-white' : 'text-gray-500 hover:text-gray-900')
-            }`}
+            className={view === 'caregiver' ? "bg-medical text-white px-5 py-1.5 rounded-full text-sm font-semibold shadow-sm flex items-center justify-center gap-2" : "text-gray-500 hover:bg-gray-100 px-5 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center justify-center gap-2"}
           >
-            <Users size={16} className="inline mr-2" /> Caregiver View
+            <Users size={16} className="inline" /> Caregiver View
           </button>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         {view === 'patient' ? (
           <div className="animate-fade-in-up">
@@ -121,7 +112,7 @@ export default function Dashboard() {
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className={`block w-full pl-10 pr-32 py-4 rounded-xl border text-sm font-medium focus:ring-2 focus:ring-blue-500 ${isDark ? 'bg-[#0f172a] border-white/10 text-white placeholder-slate-500' : 'bg-gray-50 border-gray-200 text-gray-900 placeholder-gray-400'}`}
                   />
-                  <button type="submit" className="absolute right-2 top-2 bottom-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 rounded-lg text-sm transition-all shadow-md">
+                  <button type="submit" className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                     Add Schedule
                   </button>
                 </form>
@@ -165,15 +156,15 @@ export default function Dashboard() {
                       You have missed {missedCount} doses this week. This can significantly impact your treatment efficacy. Suggestion: Adjust your schedule or consult your doctor about alternative medicines with fewer side effects.
                     </p>
                     <div className="flex gap-3">
-                      <button onClick={() => navigate('/alternatives/safe')} className="bg-red-500 text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-red-600 transition shadow-lg">
+                      <button onClick={() => navigate('/alternatives/safe')} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                         Find Safe Alternatives
                       </button>
-                      <button onClick={() => navigate('/emergency/pharmacy')} className={`text-sm font-bold px-5 py-2.5 rounded-xl transition border ${isDark ? 'bg-transparent border-red-500/40 text-red-400 hover:bg-red-500/10' : 'bg-white border-red-200 text-red-600 hover:bg-red-50'}`}>
+                      <button onClick={() => navigate('/emergency/pharmacy')} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                         Locate Emergency Pharmacy
                       </button>
                     </div>
                   </div>
-                  <button onClick={() => setShowEmergency(false)} className={`p-2 rounded-lg ${isDark ? 'text-red-400 hover:bg-red-500/20' : 'text-red-600 hover:bg-red-100'}`}>
+                  <button onClick={() => setShowEmergency(false)} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                     <XCircle size={20} />
                   </button>
                 </div>
@@ -220,10 +211,10 @@ export default function Dashboard() {
                       <div className="flex gap-2 w-full sm:w-auto">
                         {med.status === 'pending' ? (
                           <>
-                            <button onClick={() => markStatus(med.id, 'taken')} className="flex-1 sm:flex-none bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg text-sm">
+                            <button onClick={() => markStatus(med.id, 'taken')} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                               Take Now
                             </button>
-                            <button onClick={() => markStatus(med.id, 'missed')} className={`flex-1 sm:flex-none font-bold px-4 py-3 rounded-xl transition border text-sm ${isDark ? 'border-red-500/30 text-red-400 hover:bg-red-500/10' : 'border-red-200 text-red-600 hover:bg-red-50'}`}>
+                            <button onClick={() => markStatus(med.id, 'missed')} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                               Missed
                             </button>
                           </>
@@ -266,7 +257,7 @@ export default function Dashboard() {
                   </ResponsiveContainer>
                 </div>
 
-                <button onClick={() => navigate('/pharmacy/directions')} className={`mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl border font-bold text-sm transition ${isDark ? 'border-white/10 text-white hover:bg-white/5' : 'border-gray-200 text-gray-900 hover:bg-gray-50'}`}>
+                <button onClick={() => navigate('/pharmacy/directions')} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
                   <MapPin size={16} /> Inventory Running Low? Buy Now
                 </button>
               </div>
@@ -275,7 +266,7 @@ export default function Dashboard() {
           </div>
         ) : (
           /* CAREGIVER VIEW */
-          <div className="animate-fade-in-up">
+          (<div className="animate-fade-in-up">
             <div className="mb-8">
               <h1 className={`text-3xl font-black mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 Patient <span className="text-gradient">Monitoring</span>
@@ -284,7 +275,6 @@ export default function Dashboard() {
                 Monitor medication adherence and health alerts for all your patients.
               </p>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {mockPatients.map((patient) => (
                 <div key={patient.id} className={`rounded-3xl p-6 border relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
@@ -333,17 +323,13 @@ export default function Dashboard() {
                     </div>
                   )}
 
-                  <button className={`w-full mt-6 py-3 rounded-xl text-sm font-bold transition-all ${
-                    isDark 
-                      ? 'bg-white/5 border border-white/10 hover:bg-white/10 text-white' 
-                      : 'bg-gray-50 border border-gray-200 hover:bg-gray-100 text-gray-900'
-                  }`}>
+                  <button className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                     View Details
                   </button>
                 </div>
               ))}
             </div>
-          </div>
+          </div>)
         )}
       </div>
     </div>

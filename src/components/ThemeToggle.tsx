@@ -19,13 +19,12 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={handleToggle}
-      className="theme-toggle-fab"
       title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
       aria-label="Toggle theme"
+      className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
     >
       {/* Outer glow ring */}
       <div className={`theme-toggle-glow ${isDark ? 'glow-dark' : 'glow-light'}`} />
-
       {/* 3D Folding Card */}
       <div className={`theme-toggle-cube ${isFlipping ? 'flipping' : ''}`}>
         {/* Front face */}
@@ -46,7 +45,6 @@ export default function ThemeToggle() {
           )}
         </div>
       </div>
-
       {/* Label tooltip */}
       <div className={`theme-toggle-label ${isDark ? 'label-dark' : 'label-light'}`}>
         <span>{isDark ? 'Light' : 'Dark'}</span>

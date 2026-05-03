@@ -26,10 +26,9 @@ export default function CallPharmacy() {
             placeholder="Enter medicine name..."
             className="flex-1 px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button className="bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition">Check</button>
+          <button className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">Check</button>
         </div>
       </Card>
-
       <div className="space-y-4">
         {pharmacies.map((ph) => (
           <Card key={ph.name} className="p-5 hover:border-blue-100 transition">
@@ -67,7 +66,6 @@ export default function CallPharmacy() {
           </Card>
         ))}
       </div>
-
       {/* Helpline */}
       <Card className="p-5 mt-6 bg-blue-50 border-blue-100">
         <p className="text-sm font-bold text-blue-800 mb-1">🏛️ Government Medicine Helpline</p>

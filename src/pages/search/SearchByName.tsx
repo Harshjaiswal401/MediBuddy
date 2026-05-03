@@ -47,27 +47,25 @@ export default function SearchByName() {
           accent="blue"
         />
       </div>
-
       {/* Popular Tags */}
       <div className="flex flex-wrap gap-2 mb-8">
         {['Paracetamol', 'Omeprazole', 'Metformin', 'Azithromycin', 'Cetirizine', 'Amoxicillin', 'Vitamin D3', 'Dolo 650'].map((tag) => (
           <button
             key={tag}
             onClick={() => handleSearch(tag)}
-            className={`text-xs px-4 py-2 rounded-full border transition ${isDark ? 'glass border-white/10 text-slate-400 hover:text-blue-300 hover:border-blue-500/30' : 'bg-white border-gray-200 text-gray-500 hover:text-blue-600 hover:border-blue-300'}`}
+            className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200"
           >
             {tag}
           </button>
         ))}
       </div>
-
       {/* Results */}
       <div>
         <div className="flex items-center justify-between mb-5">
           <h2 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
             {searched ? `${results.length} Result${results.length !== 1 ? 's' : ''} Found` : `All Medicines (${results.length})`}
           </h2>
-          <button className={`flex items-center gap-2 text-xs border px-3 py-2 rounded-xl transition ${isDark ? 'text-slate-400 glass border-white/8 hover:text-white' : 'text-gray-500 bg-white border-gray-200 hover:text-gray-900'}`}>
+          <button className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">
             <Filter size={13} /> Filter
           </button>
         </div>
@@ -111,15 +109,7 @@ export default function SearchByName() {
                     <button
                       onClick={(e) => handleAddToCart(med, e)}
                       disabled={!med.inStock}
-                      className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                        addedId === med.id
-                          ? 'bg-green-600 text-white'
-                          : !med.inStock
-                            ? (isDark ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : 'bg-gray-100 text-gray-400 cursor-not-allowed')
-                            : isInCart(med.id)
-                              ? (isDark ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-50 text-blue-600 border border-blue-200')
-                              : (isDark ? 'bg-blue-600 text-white hover:bg-blue-500' : 'bg-blue-600 text-white hover:bg-blue-500')
-                      }`}
+                      className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
                     >
                       {addedId === med.id ? <><CheckCircle size={12} /> Added!</> :
                        isInCart(med.id) ? <><ShoppingCart size={12} /> In Cart</> :

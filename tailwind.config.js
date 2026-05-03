@@ -7,6 +7,12 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        medical: {
+          DEFAULT: '#14B8A6', // teal/mint green
+          dark: '#0D9488',
+        }
+      },
       fontFamily: {
         sans: ['Inter', 'Outfit', 'system-ui', 'sans-serif'],
       },

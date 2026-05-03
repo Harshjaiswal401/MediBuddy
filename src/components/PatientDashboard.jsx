@@ -58,12 +58,13 @@ export default function PatientDashboard({ user }) {
               <Medal size={16} /> {badge}
             </div>
           ))}
-          <button onClick={() => setShowAddModal(true)}>
+          <button
+            onClick={() => setShowAddModal(true)}
+            className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
             <PlusCircle size={20} /> Add Medication
           </button>
         </div>
       </div>
-
       <div className="dashboard-grid">
         {medications.map(med => (
           <div key={med.id} className="card medication-card">
@@ -83,20 +84,23 @@ export default function PatientDashboard({ user }) {
 
             <div className="flex gap-2">
               <button 
-                className="btn-secondary" 
-                style={{ padding: '10px' }}
+                style={{ padding: '10px' }} 
                 onClick={() => playReminder(med.name)}
                 title="Play Audio Reminder"
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 <Volume2 size={20} />
               </button>
               
               {med.status === 'taken' ? (
-                <button className="btn-success" disabled style={{ flex: 1, opacity: 0.8 }}>
+                <button disabled style={{ flex: 1, opacity: 0.8 }} className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                   <CheckCircle size={20} /> Taken
                 </button>
               ) : (
-                <button style={{ flex: 1 }} onClick={() => markAsTaken(med.id)}>
+                <button
+                  style={{ flex: 1 }}
+                  onClick={() => markAsTaken(med.id)}
+                  className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">
                   Mark as Taken
                 </button>
               )}
@@ -104,7 +108,6 @@ export default function PatientDashboard({ user }) {
           </div>
         ))}
       </div>
-
       {showAddModal && (
         <div style={{
           position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
@@ -127,8 +130,11 @@ export default function PatientDashboard({ user }) {
               <small className="text-secondary">Upload a physical picture of the pill/bottle.</small>
             </div>
             <div className="flex gap-2" style={{ marginTop: '20px' }}>
-              <button className="btn-secondary" style={{ flex: 1 }} onClick={() => setShowAddModal(false)}>Cancel</button>
-              <button style={{ flex: 1 }} onClick={() => setShowAddModal(false)}>Save</button>
+              <button style={{ flex: 1 }} onClick={() => setShowAddModal(false)} className="border-2 border-gray-200 text-gray-600 bg-transparent hover:bg-gray-50 hover:border-gray-300 px-6 py-3 rounded-xl font-semibold transition-all duration-200">Cancel</button>
+              <button
+                style={{ flex: 1 }}
+                onClick={() => setShowAddModal(false)}
+                className="bg-medical text-white px-6 py-3 rounded-xl font-semibold hover:bg-medical-dark hover:-translate-y-0.5 transition-all duration-200 shadow-sm hover:shadow-md">Save</button>
             </div>
           </div>
         </div>
