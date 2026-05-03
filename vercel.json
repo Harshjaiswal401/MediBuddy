@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/chat",
+      "destination": "https://harshg789.app.n8n.cloud/webhook/d6404487-3e08-4921-b58e-aa4cac78df21/chat"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
